@@ -19,14 +19,14 @@ class DecodeImage extends ImageProvider<DecodeImage> {
   });
 
   @override
-  ImageStreamCompleter load(DecodeImage key, DecoderCallback decode) {
+  ImageStreamCompleter load(DecodeImage key, Future<ui.Codec> Function(Uint8List) decode) {
     return MultiFrameImageStreamCompleter(
       codec: _loadAsync(key, decode),
       scale: key.scale,
     );
   }
 
-  Future<ui.Codec> _loadAsync(DecodeImage key, DecoderCallback decode) async {
+  Future<ui.Codec> _loadAsync(DecodeImage key, Future<ui.Codec> Function(Uint8List) decode) async {
     assert(key == this);
 
     final coverEntity =
