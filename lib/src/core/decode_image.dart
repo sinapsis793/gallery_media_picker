@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
-
+import 'dart:typed_data';
 import 'package:photo_manager/photo_manager.dart';
 
 class DecodeImage extends ImageProvider<DecodeImage> {
